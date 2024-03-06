@@ -17,4 +17,4 @@ Please be aware that our app and our models are still at an early stage and can 
 
 Please upload/take a picture and test our app and see how much dose of insuline you should take based on the picture of your food received!
 '''
-st.file_uploader(Photo of your meal, type=['png', 'jpg', 'jpeg'], accept_multiple_files=False, help='Upload your photo', visibility="visible")
+st.file_uploader('Photo of your meal', type=['png', 'jpg', 'jpeg'], accept_multiple_files=False, help='Upload your photo', visibility="visible")
