@@ -27,7 +27,7 @@ if uploaded_file is not None:
 col1, col2, col3 = st.columns([1,2,1])  # Create columns for layout
       
 with col2:  # Put the button in the middle column
-    if st.button('Give me an insuline recomendation!', key='predict'):
+    if st.button("Let's try to detect food type and give you an insuline recomendation!", key='predict'):
         if uploaded_file is not None:
             files = {'image': uploaded_file}
             with st.spinner('Trying to detect food type and give you an insuline recomendation!'):
