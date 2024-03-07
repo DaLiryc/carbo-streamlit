@@ -27,14 +27,16 @@ if uploaded_file is not None:
 col1, col2, col3 = st.columns([1,2,1])  # Create columns for layout
       
 with col2:  # Put the button in the middle column
-    if st.button("Let's try to detect food type and give you an insuline recomendation!", key='predict'):
-        if uploaded_file is not None:
-            files = {'image': uploaded_file}
-            with st.spinner('Trying to detect food type and give you an insuline recomendation!'):
-                response = requests.post(url + '/predict', files=files)
-            if response.status_code == 200:
-                st.write("Here are the results: ", response.json())
+    col2_1, col2_2, col2_3 = st.columns([1,4,1])  # Create sub-columns within col2
+    with col2_2:  # Put the button in the middle sub-column
+        if st.button("Let's try to detect food type and give you an insuline recomendation!", key='predict'):
+            if uploaded_file is not None:
+                files = {'image': uploaded_file}
+                with st.spinner('Trying to detect food type and give you an insuline recomendation!'):
+                    response = requests.post(url + '/predict', files=files)
+                if response.status_code == 200:
+                    st.write("Here are the results: ", response.json())
+                else:
+                    st.write("Food not yet recognized, our model is still learning, sorry!")
             else:
-                st.write("Food not yet recognized, our model is still learning, sorry!")
-        else:
-            st.write("Please upload an image")
+                st.write("Please upload an image")
