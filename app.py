@@ -20,16 +20,21 @@ Please upload/take a picture and test our app and see how much dose of insuline 
 uploaded_file = st.file_uploader('Photo of your meal', type=['png', 'jpg', 'jpeg'], accept_multiple_files=False, help='Upload your photo')
 
 if uploaded_file is not None:
-    st.image(uploaded_file, width=300)  # Display the uploaded image in a smaller size
+    col1, col2, col3 = st.beta_columns([1,6,1])  # Create columns for layout
+    with col2:  # Display the uploaded image in the middle column
+        st.image(uploaded_file, width=300)
         
-if st.button('Give me an insuline recomendation!'):
-    if uploaded_file is not None:
-        files = {'image': uploaded_file}
-        with st.spinner('Trying to detect food type and give you an insuline recomendation!'):
-            response = requests.post(url + '/predict', files=files)
-        if response.status_code == 200:
-            st.write("Here are the results: ", response.json())
+col1, col2, col3 = st.beta_columns([1,6,1])  # Create columns for layout
+      
+with col2:  # Put the button in the middle column
+    if st.button('Give me an insuline recomendation!', key='predict'):
+        if uploaded_file is not None:
+            files = {'image': uploaded_file}
+            with st.spinner('Trying to detect food type and give you an insuline recomendation!'):
+                response = requests.post(url + '/predict', files=files)
+            if response.status_code == 200:
+                st.write("Here are the results: ", response.json())
+            else:
+                st.write("Food not yet recognized, our model is still learning, sorry!")
         else:
-            st.write("Food not yet detected, our model is still learning, sorry!")
-    else:
-        st.write("Please upload an image")
+            st.write("Please upload an image")
