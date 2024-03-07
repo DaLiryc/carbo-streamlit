@@ -20,11 +20,11 @@ Please upload/take a picture and test our app and see how much dose of insuline 
 uploaded_file = st.file_uploader('Photo of your meal', type=['png', 'jpg', 'jpeg'], accept_multiple_files=False, help='Upload your photo')
 
 if uploaded_file is not None:
-    col1, col2, col3 = st.columns([1,6,1])  # Create columns for layout
+    col1, col2, col3 = st.columns([1,2,1])  # Create columns for layout
     with col2:  # Display the uploaded image in the middle column
         st.image(uploaded_file, width=300)
         
-col1, col2, col3 = st.columns([1,6,1])  # Create columns for layout
+col1, col2, col3 = st.columns([1,2,1])  # Create columns for layout
       
 with col2:  # Put the button in the middle column
     if st.button('Give me an insuline recomendation!', key='predict'):
