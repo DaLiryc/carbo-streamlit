@@ -22,7 +22,7 @@ uploaded_file = st.file_uploader('Photo of your meal', type=['png', 'jpg', 'jpeg
 if uploaded_file is not None:
     col1, col2, col3 = st.columns([1,2,1])  # Create columns for layout
     with col2:  # Display the uploaded image in the middle column
-        st.image(uploaded_file, width=300)
+        st.image(uploaded_file, width=340)
         
 col1, col2, col3 = st.columns([1,2,1])  # Create columns for layout
       
