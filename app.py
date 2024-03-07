@@ -21,7 +21,7 @@ uploaded_file = st.file_uploader('Photo of your meal', type=['png', 'jpg', 'jpeg
         
 if st.button('Give me an insuline recomendation!'):
     if uploaded_file is not None:
-        files = {'file': uploaded_file}
+        files = {'image': uploaded_file}
         response = requests.post(url + '/predict', files=files)
         if response.status_code == 200:
             st.write("Here are the results: ", response.json())
