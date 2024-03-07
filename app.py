@@ -35,7 +35,14 @@ with col2:  # Put the button in the middle column
                 with st.spinner('Trying to detect food type and give you an insuline recommendation!'):
                     response = requests.post(url + '/predict', files=files)
                 if response.status_code == 200:
-                    st.write("Here are the results: ", response.json())
+                    result = response.json()
+                    food_result = result.get('food_result', 'Unknown')
+                    carbs_result = result.get('carbs_result', 'Unknown')
+                    insuline_result = result.get('insuline_result', 'Unknown')
+
+                    st.markdown(f"**Food detected:** {food_result} :drooling_face:")  # Replace :pizza: with the appropriate emoji
+                    st.markdown(f"**Estimated carbs:** {carbs_result:.2f} g")
+                    st.markdown(f"**Recommended insuline dose (not a medical advice, please use your common sense):** {insuline_result} dose")
                 else:
                     st.write("Food not yet recognized, our model is still learning, sorry!")
             else:
