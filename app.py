@@ -7,7 +7,7 @@ import datetime
 #If api in the cloud please update the url with the url
 url = 'https://cabotrack-qoz5nlx2ga-ew.a.run.app'
 
-st.markdown("# This is our version of the Carbotrack app! #")
+st.markdown("# Welcome to the Carbotrack app! #")
     
     
 '''
@@ -32,7 +32,7 @@ with col2:  # Put the button in the middle column
         if st.button("Let's try to detect food type and give you an insuline recomendation!", key='predict'):
             if uploaded_file is not None:
                 files = {'image': uploaded_file}
-                with st.spinner('Trying to detect food type and give you an insuline recomendation!'):
+                with st.spinner('Trying to detect food type and give you an insuline recommendation!'):
                     response = requests.post(url + '/predict', files=files)
                 if response.status_code == 200:
                     st.write("Here are the results: ", response.json())
