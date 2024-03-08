@@ -47,7 +47,8 @@ if not check_password():
 
 
 #If api in the cloud please update the url with the url
-url = 'https://cabotrack-qoz5nlx2ga-ew.a.run.app'
+# url = 'https://cabotrack-qoz5nlx2ga-ew.a.run.app' v0
+url = 'https://carbotrackv1-7xel7l3dia-ew.a.run.app'
 
 st.markdown("# Welcome to the Carbotrack app! #")
     
