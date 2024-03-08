@@ -5,11 +5,11 @@ import numpy as np
 import datetime
 
 #If api in the cloud please update the url with the url
-url = 'https://cabotrack-qoz5nlx2ga-ew.a.run.app'
+url = 'https://carbotrack2-qoz5nlx2ga-ew.a.run.app/'
 
 st.markdown("# Welcome to the Carbotrack app! #")
-    
-    
+
+
 '''
 Please be aware that our app and our models are still at an early stage and can lack accuracy or not be able to detect food type!
 
@@ -23,9 +23,9 @@ if uploaded_file is not None:
     col1, col2, col3 = st.columns([1,2,1])  # Create columns for layout
     with col2:  # Display the uploaded image in the middle column
         st.image(uploaded_file, width=340)
-        
+
 col1, col2, col3 = st.columns([1,2,1])  # Create columns for layout
-      
+
 with col2:  # Put the button in the middle column
     col2_1, col2_2, col2_3 = st.columns([1,4,1])  # Create sub-columns within col2
     with col2_2:  # Put the button in the middle sub-column
