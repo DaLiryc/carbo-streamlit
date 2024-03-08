@@ -76,7 +76,7 @@ with col2:  # Put the button in the middle column
             if uploaded_file is not None:
                 files = {'image': uploaded_file}
                 with st.spinner('Trying to detect food type and give you an insuline recommendation!'):
-                    response = requests.post('https://carbotrackv1-7xel7l3dia-ew.a.run.app/predict', files=files)
+                    response = requests.post(url + '/predict', files=files)
                 if response.status_code == 200:
                     result = response.json()
                     food_result = result.get('food_result', 'Unknown')
