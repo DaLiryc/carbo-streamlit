@@ -127,7 +127,7 @@ if uploaded_file is not None:
             response = requests.post(url, files=files) # type: ignore
             if response.status_code == 200:
                 response_json = response.json()
-                st.write(f"Food: {response_json['food_result']}")
+                st.write(f"Food: {response_json['food_result'].capitalize()} :drooling_face:")
                 st.write(f"Carbohydrates: {response_json['carbs_result']} grams")
                 st.write(f"Insulin: {response_json['insuline_result']} units")
             else:
