@@ -141,4 +141,4 @@ with col2:  # Put the button in the middle column
                 except requests.RequestException as e:
                     st.error(f"Request failed: {e}")
                 except Exception as e:
-                    st.error(f"An error occurred: {e}")
+                    st.error(f"Food not yet recognized, our model is still learning, sorry!")
