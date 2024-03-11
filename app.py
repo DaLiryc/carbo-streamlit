@@ -62,15 +62,31 @@ Please be aware that our app and our models are still at an early stage and can 
 
 Please upload/take a picture and test our app and see how much dose of insuline you should take based on the picture of your food received!
 '''
-uploaded_file = st.file_uploader('Photo of your meal', type=['png', 'jpg', 'jpeg'], accept_multiple_files=False, help='Upload your photo')
+# uploaded_file = st.file_uploader('Photo of your meal', type=['png', 'jpg', 'jpeg'], accept_multiple_files=False, help='Upload your photo')
+
+uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+
 
 if uploaded_file is not None:
     col1, col2, col3 = st.columns([1,2,1])  # Create columns for layout
     with col2:  # Display the uploaded image in the middle column
         st.image(uploaded_file, width=340)
 
-files = {"image": (uploaded_file.name, uploaded_file, "image/jpeg")}
+uploaded_file = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
+if uploaded_file is not None:
+    image = Image.open(uploaded_file)
+    st.image(image, caption='Uploaded Image.', use_column_width=True)
+    st.write("")
 
+    if image.mode != 'RGB':
+        image = image.convert('RGB')
+
+    # Store file as jpege as it's smaller to transfer
+    buffer = io.BytesIO()
+    image.save(buffer, format="JPEG")
+    buffer.seek(0)
+
+    files = {"image": (uploaded_file.name, buffer, "image/jpeg")}
         
 col1, col2, col3 = st.columns([1,2,1])  # Create columns for layout
       
