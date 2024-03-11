@@ -1,3 +1,4 @@
+import io
 import streamlit as st
 import requests
 import pandas as pd
@@ -122,7 +123,7 @@ if uploaded_file is not None:
 
     with st.spinner('Processing... Please wait'):
         try:
-            response = requests.post(selected_api_url, files=files)
+            response = requests.post(selected_api_url, files=files) # type: ignore
             if response.status_code == 200:
                 response_json = response.json()
                 st.write(f"Food: {response_json['food_result']}")
