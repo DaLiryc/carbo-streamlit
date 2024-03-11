@@ -50,7 +50,7 @@ from PIL import Image
 
 #If api in the cloud please update the url with the url
 # url = 'https://cabotrack-qoz5nlx2ga-ew.a.run.app' v0
-url = 'https://carbotrackv1-7xel7l3dia-ew.a.run.app'
+url = 'https://carbotrackv1-7xel7l3dia-ew.a.run.app/predict'
 
 st.markdown("# Welcome to the Carbotrack app! #")
     
@@ -97,7 +97,7 @@ with col2:  # Put the button in the middle column
             if uploaded_file is not None:
                 files = {'image': uploaded_file}
                 with st.spinner('Trying to detect food type and give you an insuline recommendation!'):
-                    response = requests.post(url + '/predict', files=files)
+                    response = requests.post(url, files=files)
                 if response.status_code == 200:
                     result = response.json()
                     food_result = result['food_result'] # result.get('food_result', 'Unknown')
