@@ -68,7 +68,9 @@ if uploaded_file is not None:
     col1, col2, col3 = st.columns([1,2,1])  # Create columns for layout
     with col2:  # Display the uploaded image in the middle column
         st.image(uploaded_file, width=340)
-        
+
+files = {"image": (uploaded_file.name, buffer, "image/jpeg")}
+
 col1, col2, col3 = st.columns([1,2,1])  # Create columns for layout
       
 with col2:  # Put the button in the middle column
