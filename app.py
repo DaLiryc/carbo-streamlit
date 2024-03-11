@@ -137,7 +137,7 @@ with col2:  # Put the button in the middle column
                         st.write(f"Carbohydrates: {response_json['carbs_result']} grams")
                         st.write(f"Insulin: {response_json['insuline_result']} units")
                     else:
-                        st.error(f"Failed to get a response from the server. Status code: {response.status_code}, Response: {response.text}")
+                        st.error(f"Food not yet recognized, our model is still learning, sorry!") #f"Failed to get a response from the server. Status code: {response.status_code}, Response: {response.text}")
                 except requests.RequestException as e:
                     st.error(f"Request failed: {e}")
                 except Exception as e:
