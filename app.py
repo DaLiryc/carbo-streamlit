@@ -121,18 +121,24 @@ if uploaded_file is not None:
     buffer.seek(0)
 
     files = {"image": (uploaded_file.name, buffer, "image/jpeg")}
+col1, col2, col3 = st.columns([1,2,1])  # Create columns for layout
+      
+with col2:  # Put the button in the middle column
+    col2_1, col2_2, col2_3 = st.columns([1,4,1])  # Create sub-columns within col2
+    with col2_2:  # Put the button in the middle sub-column
+        if st.button("Let's try to detect food type and give you an insuline recomendation!", key='predict'):
 
-    with st.spinner('Processing... Please wait'):
-        try:
-            response = requests.post(url, files=files) # type: ignore
-            if response.status_code == 200:
-                response_json = response.json()
-                st.write(f"Food: {response_json['food_result'].capitalize()} :drooling_face:")
-                st.write(f"Carbohydrates: {response_json['carbs_result']} grams")
-                st.write(f"Insulin: {response_json['insuline_result']} units")
-            else:
-                st.error(f"Failed to get a response from the server. Status code: {response.status_code}, Response: {response.text}")
-        except requests.RequestException as e:
-            st.error(f"Request failed: {e}")
-        except Exception as e:
-            st.error(f"An error occurred: {e}")
+            with st.spinner('Processing... Please wait'):
+                try:
+                    response = requests.post(url, files=files) # type: ignore
+                    if response.status_code == 200:
+                        response_json = response.json()
+                        st.write(f"Food: {response_json['food_result'].capitalize()} :drooling_face:")
+                        st.write(f"Carbohydrates: {response_json['carbs_result']} grams")
+                        st.write(f"Insulin: {response_json['insuline_result']} units")
+                    else:
+                        st.error(f"Failed to get a response from the server. Status code: {response.status_code}, Response: {response.text}")
+                except requests.RequestException as e:
+                    st.error(f"Request failed: {e}")
+                except Exception as e:
+                    st.error(f"An error occurred: {e}")
