@@ -54,7 +54,7 @@ url = 'https://carbotrackv1-7xel7l3dia-ew.a.run.app/predict'
 
 st.markdown("# Welcome to the Carbotrack app! #")
 
-col1, col2, col3 = st.columns([2,6,2])
+col1, col2, col3 = st.columns([3,6,3])
 
 with col2:
     logo = Image.open('logo.jpg')
