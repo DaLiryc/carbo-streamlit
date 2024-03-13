@@ -54,7 +54,7 @@ url = 'https://carbotrackv1-7xel7l3dia-ew.a.run.app/predict'
 
 st.markdown("# Welcome to the Carbotrack app! #")
 
-logo = Image.open('/home/daliryc/code/DaLiryc/carbo-streamlit/carbo-streamlit/logo.jpg')
+logo = Image.open('carbo-streamlit/app.py')
 st.image(logo, width=100)    
     
 '''
