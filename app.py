@@ -63,9 +63,9 @@ with col2:
 '''
 Please be aware that our app and our models are still at an early stage and can lack accuracy or not be able to detect food type!
 
-**DO NOT** use as a medical guidance, always follow recomendations from your doctor!
+**DO NOT** use as a medical guidance, always follow recommendations from your doctor!
 
-Please upload/take a picture and test our app and see how much dose of insuline you should take based on the picture of your food received!
+Please upload/take a picture of your meal and test our app and see how many dose of insuline you should take based on the picture you upload!
 '''
 # uploaded_file = st.file_uploader('Photo of your meal', type=['png', 'jpg', 'jpeg'], accept_multiple_files=False, help='Upload your photo')
 
