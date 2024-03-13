@@ -54,8 +54,11 @@ url = 'https://carbotrackv1-7xel7l3dia-ew.a.run.app/predict'
 
 st.markdown("# Welcome to the Carbotrack app! #")
 
-logo = Image.open('logo.jpg')
-st.image(logo, width=100)    
+col1, col2, col3 = st.beta_columns([1,6,1])
+
+with col2:
+    logo = Image.open('logo.jpg')
+    st.image(logo, width=250)    
     
 '''
 Please be aware that our app and our models are still at an early stage and can lack accuracy or not be able to detect food type!
