@@ -53,7 +53,9 @@ from PIL import Image
 url = 'https://carbotrackv1-7xel7l3dia-ew.a.run.app/predict'
 
 st.markdown("# Welcome to the Carbotrack app! #")
-    
+
+logo = Image.open('/home/daliryc/code/DaLiryc/carbo-streamlit/carbo-streamlit/logo.jpg')
+st.image(logo, width=100)    
     
 '''
 Please be aware that our app and our models are still at an early stage and can lack accuracy or not be able to detect food type!
